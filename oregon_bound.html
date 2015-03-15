@@ -2,21 +2,13 @@
 <meta charset="utf-8">
 <style>
 
-.feature {
-  fill: #ccc;
-}
-
-.mesh {
-  fill: none;
+.feature  {
+  fill: #e5e5e5;
   stroke: #fff;
-  stroke-width: .5px;
-  stroke-linejoin: round;
+  stroke-width:1px;
 }
-
-.outline {
-  fill: #ddd;
-  stroke: #000;
-  stroke-width: 1.5px;
+.feature:hover {
+  fill: #3182bd;
 }
 
 </style>
@@ -27,9 +19,12 @@
 
 var width = 960,
     height = 500;
+    
+// Define Oregon map projection
 
 var projection = d3.geo.albers();
-
+    .rotate([119.5, 0, 0]);
+    
 var path = d3.geo.path()
     .projection(projection);
 
@@ -57,15 +52,6 @@ d3.json("data/oregon.topo.json", function(error, oregon) {
       .attr("class", "feature")
       .attr("d", path);
 
-  svg.append("path")
-      .datum(topojson.mesh(oregon, oregon.objects.oregon, function(a, b) { return a !== b; }))
-      .attr("class", "mesh")
-      .attr("d", path);
-
-  svg.append("path")
-      .datum(state)
-      .attr("class", "outline")
-      .attr("d", path);
 });
 
 </script>
