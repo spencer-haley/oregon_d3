@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.feature {
+  fill: #ccc;
+}
+
+.mesh {
+  fill: none;
+  stroke: #fff;
+  stroke-width: .5px;
+  stroke-linejoin: round;
+}
+
+.outline {
+  fill: #ddd;
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+</style>
+<body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500;
+
+var projection = d3.geo.albers();
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+d3.json("data/oregon.topo.json", function(error, oregon) {
+  var oregon = topojson.feature(oregon, oregon.objects.oregon);
+
+  projection
+      .scale(1)
+      .translate([0, 0]);
+
+  var b = path.bounds(oregon),
+      s = .95 / Math.max((b[1][0] - b[0][0]) / width, (b[1][1] - b[0][1]) / height),
+      t = [(width - s * (b[1][0] + b[0][0])) / 2, (height - s * (b[1][1] + b[0][1])) / 2];
+
+  projection
+      .scale(s)
+      .translate(t);
+
+  svg.append("path")
+      .datum(oregon)
+      .attr("class", "feature")
+      .attr("d", path);
+
+  svg.append("path")
+      .datum(topojson.mesh(oregon, oregon.objects.oregon, function(a, b) { return a !== b; }))
+      .attr("class", "mesh")
+      .attr("d", path);
+
+  svg.append("path")
+      .datum(state)
+      .attr("class", "outline")
+      .attr("d", path);
+});
+
+</script>
