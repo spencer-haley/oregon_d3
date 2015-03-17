@@ -1,9 +1,11 @@
 # oregon_d3
 D3 exploration using the state of Oregon as a focus
 
-Source Data and Workflow:
+Source Data and Workflow(s):
 
 County Boundaries Shapefile - Oregon	1990 County Boundaries. Source: Census Bureau TIGER files, 1:100,000 - http://navigator.state.or.us/sdl/data/shapefile/k100/county.zip
+<br>
+Workflow 1 (Dropping attributes):
 <br>
 Coordinate reference system changed to EPSG:4326 (WGS 84) from EPSG:2992 (NAD83/Oregon Lambert (ft)) using QGIS 2.8.1
 <br>
@@ -11,6 +13,10 @@ http://www.mapshaper.org/ used to simplify original .shp to 2.5% and 2 line inte
 <br>
 GeoJSON exported as oregon.geo.json and validated at http://geojsonlint.com/
 <br>TopoJSON exported as oregon.topo.json
+<br>Workflow 2
+<br>GDAL via OSGeo4W Shell: ogr2ogr -f GeoJSON -t_srs crs:84 oregon.geojson oregon.shp
+<br>
+
 
 US Drought Monitor Shapefile - 20150310
 <br>
