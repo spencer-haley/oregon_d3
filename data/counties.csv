@@ -1,0 +1,37 @@
+county,fips,seat,established,population,area
+Baker,1,Baker City,1862,16280,3068
+Benton,3,Corvallis,1847,87725,676
+Clackamas,5,Oregon City,1843,386080,1868
+Clatsop,7,Astoria,1844,37270,827
+Columbia,9,Saint Helens,1854,49850,657
+Coos,11,Coquille,1853,62860,1600
+Crook,13,Prineville,1882,20690,2980
+Curry,15,Gold Beach,1855,22300,1627
+Deschutes,17,Bend,1916,162525,3018
+Douglas,19,Roseburg,1852,108850,5037
+Gilliam,21,Condon,1885,1945,1204
+Grant,23,Canyon City,1864,7435,4529
+Harney,25,Burns,1889,7260,10135
+Hood River,27,Hood River,1908,23295,522
+Jackson,29,Medford,1852,206310,2785
+Jefferson,31,Madras,1914,22040,1781
+Josephine,33,Grants Pass,1856,82815,1640
+Klamath,35,Klamath Falls,1882,66810,5945
+Lake,37,Lakeview,1874,7895,7940
+Lane,39,Eugene,1851,356125,4554
+Lincoln,41,Newport,1893,46560,980
+Linn,43,Albany,1847,118665,2291
+Malheur,45,Vale,1887,31440,9888
+Marion,47,Salem,1843,322880,1185
+Morrow,49,Heppner,1885,11425,2033
+Multnomah,51,Portland,1854,756530,435
+Polk,53,Dallas,1845,77065,741
+Sherman,55,Moro,1889,1780,823
+Tillamook,57,Tillamook,1853,25375,1102
+Umatilla,59,Pendleton,1862,77895,3215
+Union,61,La Grande,1864,26325,2037
+Wallowa,63,Enterprise,1887,7045,3145
+Wasco,65,The Dalles,1854,25810,2381
+Washington,67,Hillsboro,1843,550990,724
+Wheeler,69,Fossil,1899,1430,1715
+Yamhill,71,McMinnville,1843,101400,716
