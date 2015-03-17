@@ -22,8 +22,10 @@ var width = 960,
     
 // Define Oregon map projection
 
-var projection = d3.geo.albers();
-    .rotate([119.5, 0, 0]);
+var projection = d3.geo.albers()
+    .rotate([119.5, 0, 0])
+    .scale(1)
+    .translate([0, 0]);
     
 var path = d3.geo.path()
     .projection(projection);
@@ -33,13 +35,9 @@ var svg = d3.select("body").append("svg")
     .attr("height", height);
 
 d3.json("data/oregon.topo.json", function(error, oregon) {
-  var oregon = topojson.feature(oregon, oregon.objects.oregon);
+  var map = topojson.feature(oregon, oregon.objects.oregon);
 
-  projection
-      .scale(1)
-      .translate([0, 0]);
-
-  var b = path.bounds(oregon),
+  var b = path.bounds(map),
       s = .95 / Math.max((b[1][0] - b[0][0]) / width, (b[1][1] - b[0][1]) / height),
       t = [(width - s * (b[1][0] + b[0][0])) / 2, (height - s * (b[1][1] + b[0][1])) / 2];
 
@@ -48,7 +46,7 @@ d3.json("data/oregon.topo.json", function(error, oregon) {
       .translate(t);
 
   svg.append("path")
-      .datum(oregon)
+      .datum(map)
       .attr("class", "feature")
       .attr("d", path);
 
